@@ -1,22 +1,22 @@
 {
 	"pools":[
 	{
-		"name": "ViporPool",
-        	"url": "stratum+tcp://ru.vipor.net:5040",
+		"name": "lanpool",
+        	"url": "stratum+tcp://192.168.8.3:3093",
 		"timeout": 150
 	},
 	{
-		"name": "ViporPoolFailover1",
-        	"url": "stratum+tcp://ua.vipor.net:5040",
+		"name": "lanpool",
+        	"url": "stratum+tcp://192.168.8.3:3093",
 		"timeout": 150
 	},
 	{
-		"name": "ViporPoolFailover2",
-        	"url": "stratum+tcp://ro.vipor.net:5040",
+		"name": "lanpool",
+        	"url": "stratum+tcp://192.168.8.3:3093",
 		"timeout": 150
 	}
 	],
-	"user": "RVQV5p18tThEWQMGupnNFpsVox8JCvrvW7.x1",
+	"user": "RYYuFZr8h6Uh1D2MmwAntK6FtAKDDKMcp7.x1",
 	"pass": "x",
 	"algo": "verus",
 	"threads": 8,
