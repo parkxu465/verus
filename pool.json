@@ -1,0 +1,137 @@
+{
+    "logging": {
+        "level": "info",
+        "enableConsoleLog": true,
+        "enableConsoleColors": true,
+        "logFile": "logfile1",
+        "apiLogFile": "",
+        "logBaseDirectory": "",
+        "perPoolLogFile": true
+    },
+    "banning": {
+        "manager": "Integrated",
+        "banOnJunkReceive": false,
+        "banOnInvalidShares": false
+    },
+    "notifications": {
+        "enabled": false,
+        "email": {
+            "host": "smtp.example.com",
+            "port": 58700,
+            "user": "user",
+            "password": "password",
+            "fromAddress": "info@yourpool.org",
+            "fromName": "support"
+        },
+        "admin": {
+            "enabled": false,
+            "emailAddress": "user@example.com",
+            "notifyBlockFound": true
+        }
+    },
+    "persistence": {
+        "postgres": {
+            "host": "127.0.0.1",
+            "port": 5432,
+            "user": "miningcore",
+            "password": "123123",
+            "database": "miningcore"
+        }
+    },
+
+    "paymentProcessing": {
+        "enabled": false,
+        "interval": 600,
+        "shareRecoveryFile": "recovered-shares.txt"
+    },
+    "api": {
+        "enabled": false,
+        "listenAddress": "*",
+        "port": 4000,
+        "metricsIpWhitelist": [],
+        "rateLimiting": {
+            "disabled": true,
+            "rules": [
+                {
+                    "Endpoint": "*",
+                    "Period": "1s",
+                    "Limit": 5
+                }
+            ],
+            "ipWhitelist": [
+                ""
+            ]
+        }
+    },
+    "pools": [{
+        "id": "vrsc1",
+        "enabled": true,
+        "coin": "veruscoin",
+        "address": "RB3am74c4EZFpYpgUFRxgSGaz1xs3Fnenm",
+        "GBTArgs": [{
+            "capabilities": [
+                "coinbasetxn",
+                "workid",
+                "coinbase/append"
+            ],
+            "rules": [
+                "segwit"
+            ]
+        }],
+        "rewardRecipients": [
+            {
+                "type": "op",
+                "address": "RB3am74c4EZFpYpgUFRxgSGaz1xs3Fnenm",
+                "percentage": 0.1
+            }
+        ],
+        "blockRefreshInterval": 60,
+        "jobRebroadcastTimeout": 0,
+        "clientConnectionTimeout": 2400,
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 50,
+            "checkThreshold": 50
+        },
+        "ports": {
+           
+            "3093": {
+                "listenAddress": "0.0.0.0",
+                "difficulty": 260000,
+                "name": "PHONE",
+                "varDiff": {
+                    "minDiff": 30000,
+                    "maxDiff": 6200000000,
+                    "targetTime": 25,
+                    "retargetTime": 60,
+                    "variancePercent": 30,
+                    "maxDelta": 30000
+                }
+            },
+            
+        },
+       
+        "daemons": [
+            {
+                "host": "127.0.0.1",
+                "port": 27486,
+                "user": "verus",
+                "password": "veruspasswd",
+                "zmqBlockNotifySocket": "tcp://127.0.0.1:7772",
+                "zmqBlockNotifyTopic": "hashblock"
+            }
+        ],
+
+        "paymentProcessing": {
+            "walletPrivateKey": "UppysfZyi1qijZJ4XQxAxMVHudYxKfoeQaqy3cgGtwxbq8uuo7D2",
+            "enabled": true,
+            "minimumPayment": 1,
+            "payoutScheme": "PPLNS",
+            "payoutSchemeConfig": {
+                "factor": 0.5
+            }
+        }
+    }]
+}
+
